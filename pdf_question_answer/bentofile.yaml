@@ -1,0 +1,12 @@
+service: "service:PdfQAService"
+labels:
+  author: "dagworks"
+  project: "burr-example"
+include:
+  - "*.py"
+python:
+  requirements_txt: "./requirements.txt"
+docker:
+  python_version: "3.11"
+envs:
+  - name: OPENAI_API_KEY 
