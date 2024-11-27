@@ -1,4 +1,0 @@
-bentoml
-burr[core,tracking]
-openai
-pypdf
