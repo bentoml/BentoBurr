@@ -53,11 +53,11 @@ if __name__ == "__main__":
     app = build_application("webpage-qa-bentoml", app_id="test-app")
     app.visualize("application.png", include_state=True)
 
-    # _, _, state = app.run(
-    #     halt_after=["answer_question"],
-    #     inputs={
-    #         "web_page_url": "https://docs.bentoml.com/en/latest/build-with-bentoml/services.html",
-    #         "query": "What's BentoML main feature?"
-    #     }
-    # )
-    # print(state["llm_reply"])
+    _, _, state = app.run(
+        halt_after=["answer_question"],
+        inputs={
+            "web_page_url": "https://docs.bentoml.com/en/latest/build-with-bentoml/services.html",
+            "query": "What's BentoML main feature?"
+        }
+    )
+    print(state["llm_reply"])
