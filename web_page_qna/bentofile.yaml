@@ -1,0 +1,14 @@
+service: "service:WebPageQAService"  # point to `WebPageQAService` in `service.py`
+labels:
+  author: "DAGWorks"
+  project: "burr-example"
+include:
+  - "*.py"
+python:
+  requirements_txt: "./requirements.txt"
+docker:
+  python_version: "3.11"
+# the OPENAI_API_KEY will be passed from the host
+# to the BentoML service
+envs:
+  - name: OPENAI_API_KEY  
