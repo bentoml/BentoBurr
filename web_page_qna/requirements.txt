@@ -1,8 +1,6 @@
 beautifulsoup4
 bentoml
 burr[start]
-opentelemetry-api
-opentelemetry-sdk
 opentelemetry-instrumentation-openai
 openai
 requests

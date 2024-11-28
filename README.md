@@ -1,6 +1,6 @@
 # Burr Serving with BentoML
 
-This repository shows how to deploy Burr `Application` with BentoML.
+This repository shows how to deploy a Burr `Application` with BentoML.
 
 
 ## Overview
@@ -9,7 +9,7 @@ This repository shows how to deploy Burr `Application` with BentoML.
 
 ### Application layer
 
-Burr creates easy to understand and debug applications with a clear path to production. It supports [synchronous, asynchronous](https://burr.dagworks.io/concepts/state-machine/), and [streaming](https://burr.dagworks.io/concepts/streaming-actions/) actions. [Persistence](https://burr.dagworks.io/concepts/state-persistence/), [hooks](https://burr.dagworks.io/concepts/hooks/), and [telemetry](https://burr.dagworks.io/concepts/additional-visibility/) features are built-in.
+Burr creates easy to understand and debug applications with a clear path to production. It supports [synchronous, asynchronous](https://burr.dagworks.io/concepts/state-machine/), and [streaming](https://burr.dagworks.io/concepts/streaming-actions/) actions. [Persistence & durability](https://burr.dagworks.io/concepts/state-persistence/), [hooks](https://burr.dagworks.io/concepts/hooks/), and [telemetry](https://burr.dagworks.io/concepts/additional-visibility/) features are built-in.
 
 ### Serving layer
 

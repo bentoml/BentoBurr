@@ -9,9 +9,11 @@ if __name__ == "__main__":
     parser.add_argument("--query", type=str, default="what's the title of the page?")
     args = parser.parse_args()
 
-    client = bentoml.SyncHTTPClient(args.service_url)
-    response = client.run(
-        web_page_url=args.web_page_url,
-        query=args.query,
-    )
+    # use context manager to properly cleanup the client
+    with bentoml.SyncHTTPClient(args.service_url) as client:
+        response = client.run(
+            web_page_url=args.web_page_url,
+            query=args.query,
+        )
+
     print(response)

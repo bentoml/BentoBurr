@@ -49,11 +49,11 @@ Generate a client and call the `.run()` method, which corresponds to the one def
 ```python
 import bentoml
 
-client = bentoml.SyncHTTPClient("http://localhost:3000")
-response = client.run(
-    web_page_url="https://docs.bentoml.com/en/latest/build-with-bentoml/services.html",
-    query="What's BentoML main feature?",
-)
+with bentoml.SyncHTTPClient("http://localhost:3000") as client:
+    response = client.run(
+        web_page_url="https://docs.bentoml.com/en/latest/build-with-bentoml/services.html",
+        query="What's BentoML main feature?",
+    )
 ```
 
 #### Asynchronous API

@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from burr.core import action, ApplicationBuilder, Application, State
 
+
 # @action define actions the application can take
 @action(reads=[], writes=["web_page_text"])
 def load_web_page(state: State, web_page_url: str) -> State:
@@ -28,9 +29,8 @@ def answer_question(state: State, query: str) -> State:
     return state.update(llm_reply=response.choices[0].message.content)
 
 
-# create an Application by specifying actions, transitions, and the entrypoint
-# other clauses add tracking features for the Burr UI
 def build_application(project_name: str, app_id: str = None) -> Application:
+    """Build the Q&A application and add tracking for the Burr UI"""
     return (
         ApplicationBuilder()
         .with_actions(load_web_page, answer_question)
@@ -39,7 +39,7 @@ def build_application(project_name: str, app_id: str = None) -> Application:
             ("answer_question", "load_web_page")
         )
         .with_entrypoint("load_web_page")
-        .with_identifiers(app_id=app_id)
+        .with_identifiers(app_id=app_id)  # if None, generate a UUID
         .with_tracker(project=project_name, use_otel_tracing=True)
         .build()
     )
@@ -50,9 +50,11 @@ if __name__ == "__main__":
     from opentelemetry.instrumentation.openai import OpenAIInstrumentor
     OpenAIInstrumentor().instrument()
     
+    # build and visualize the application
     app = build_application("webpage-qa-bentoml", app_id="test-app")
     app.visualize("application.png", include_state=True)
 
+    # run the application and inspect results
     _, _, state = app.run(
         halt_after=["answer_question"],
         inputs={

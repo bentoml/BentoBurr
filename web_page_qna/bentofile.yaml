@@ -1,6 +1,6 @@
 service: "service:WebPageQAService"  # point to `WebPageQAService` in `service.py`
 labels:
-  author: "dagworks"
+  author: "DAGWorks"
   project: "burr-example"
 include:
   - "*.py"
